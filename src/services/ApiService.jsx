@@ -17,7 +17,7 @@ const API_KEY = '4660cb84fc1f03c60267a22186b72ac0';
 axios.defaults.baseURL = 'https://api.themoviedb.org/3';
 axios.defaults.params = {
   api_key: API_KEY,
-  // include_adult: false,
+  //   include_adult: false,
   //   page: 1,
   //   // sort_by: 'popularity.desc',
   //   // with_keywords: '',
@@ -36,6 +36,7 @@ export const getSearch = async query => {
   const params = {
     query,
   };
+
   const { data } = await axios.get(`/search/movie`, { params });
 
   return data;
@@ -43,15 +44,18 @@ export const getSearch = async query => {
 
 export const getDetails = async movie_id => {
   const { data } = await axios.get(`/movie/${movie_id}`);
+
   return data;
 };
 
 export const getCredits = async movie_id => {
   const { data } = await axios.get(`/movie/${movie_id}/credits`);
+
   return data;
 };
 
 export const getReviews = async movie_id => {
   const { data } = await axios.get(`/movie/${movie_id}/reviews`);
+
   return data;
 };
