@@ -13,9 +13,11 @@ const Layout = () => {
           </li>
         </ul>
       </header>
+
       <main>
         <Outlet />
       </main>
+
       <footer>Footer</footer>
     </>
   );

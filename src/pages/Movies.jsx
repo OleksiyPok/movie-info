@@ -1,18 +1,41 @@
-// import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
+import { getTrending } from 'services/ApiService';
+
 const Movies = () => {
-  // useEffect(()=>{},[])
+  const [gallery, setGallery] = useState([]);
+  const [galleryPage, setGalleryPage] = useState(1);
+
+  useEffect(() => {
+    const getData = async period => {
+      try {
+        const { results, page } = await getTrending(period);
+
+        setGallery(results);
+        setGalleryPage(page);
+      } catch (error) {
+        console.log(error);
+      } finally {
+      }
+    };
+
+    getData('day');
+    // getData('week');
+  }, []);
+
   return (
-    <div>
-      {['movie-1', 'movie-2', 'movie-3', 'movie-4', 'movie-5'].map(movie => {
+    <ul>
+      {gallery.map(movie => {
         return (
-          <Link key={movie} to={`${movie}`}>
-            {movie}
-          </Link>
+          <li key={movie.id}>
+            <Link to={`${movie.id}`}>{movie.title}</Link>
+          </li>
         );
       })}
-    </div>
+    </ul>
   );
 };
 export default Movies;
+
+/* {['movie-1', 'movie-2', 'movie-3', 'movie-4', 'movie-5'].map(movie => { */
