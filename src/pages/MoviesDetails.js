@@ -9,7 +9,6 @@ const MoviesDetails = () => {
   const [movieOriginalTitle, setMovieOriginalTitle] = useState();
   const [movieHomePage, setMovieHomePage] = useState('');
   const [movieGenres, setMovieGenres] = useState('');
-  // const [movieScore, setMovieScore] = useState(0);
   const [movieOverview, setMovieOverview] = useState(0);
 
   useEffect(() => {
@@ -21,7 +20,7 @@ const MoviesDetails = () => {
         setMovieTitle(title);
         setMovieOriginalTitle(original_title);
         setMovieHomePage(homepage);
-        setMovieGenres(genre);
+        // setMovieGenres(genre);
         setMovieOverview(overview);
       } catch (error) {
         console.log(error);
