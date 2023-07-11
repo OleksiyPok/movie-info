@@ -9,19 +9,18 @@ const MoviesDetails = () => {
   const [movieTitle, setMovieTitle] = useState('');
   const [movieOriginalTitle, setMovieOriginalTitle] = useState();
   const [movieHomePage, setMovieHomePage] = useState('');
-  const [movieGenres, setMovieGenres] = useState('');
   const [movieOverview, setMovieOverview] = useState(0);
 
   useEffect(() => {
     const getData = async movieId => {
       try {
-        const { title, original_title, homepage, genre, overview } =
-          await getDetails(movieId);
+        const { title, original_title, homepage, overview } = await getDetails(
+          movieId
+        );
 
         setMovieTitle(title);
         setMovieOriginalTitle(original_title);
         setMovieHomePage(homepage);
-        // setMovieGenres(genre);
         setMovieOverview(overview);
       } catch (error) {
         console.log(error);
@@ -38,7 +37,6 @@ const MoviesDetails = () => {
         <li>Title: {movieTitle}</li>
         <li>Original name: {movieOriginalTitle}</li>
         <li>Homepage: {movieHomePage}</li>
-        {/* <li>{movieGenres}</li> */}
         <li>{movieOverview}</li>
         <li>
           <Link to={routes.MOVIES_CAST}>Cast</Link>
