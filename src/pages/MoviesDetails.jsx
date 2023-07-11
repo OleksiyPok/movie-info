@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, Outlet, useParams } from 'react-router-dom';
+import routes from 'routes';
 import { getDetails } from 'services/ApiService';
 
 const MoviesDetails = () => {
@@ -32,13 +33,22 @@ const MoviesDetails = () => {
   }, [movieId]);
 
   return (
-    <ul>
-      <li>Title: {movieTitle}</li>
-      <li>Original name: {movieOriginalTitle}</li>
-      <li>Homepage: {movieHomePage}</li>
-      {/* <li>{movieGenres}</li> */}
-      <li>{movieOverview}</li>
-    </ul>
+    <>
+      <ul>
+        <li>Title: {movieTitle}</li>
+        <li>Original name: {movieOriginalTitle}</li>
+        <li>Homepage: {movieHomePage}</li>
+        {/* <li>{movieGenres}</li> */}
+        <li>{movieOverview}</li>
+        <li>
+          <Link to={routes.MOVIES_CAST}>Cast</Link>
+        </li>
+        <li>
+          <Link to={routes.MOVIES_REVIEWS}>Reviews</Link>
+        </li>
+      </ul>
+      <Outlet />
+    </>
   );
 };
 

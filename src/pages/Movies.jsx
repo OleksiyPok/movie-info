@@ -37,5 +37,3 @@ const Movies = () => {
   );
 };
 export default Movies;
-
-/* {['movie-1', 'movie-2', 'movie-3', 'movie-4', 'movie-5'].map(movie => { */
