@@ -38,12 +38,14 @@ const MoviesDetails = () => {
         <li>Original name: {movieOriginalTitle}</li>
         <li>Homepage: {movieHomePage}</li>
         <li>{movieOverview}</li>
-        <li>
-          <Link to={routes.MOVIES_CAST}>Cast</Link>
-        </li>
-        <li>
-          <Link to={routes.MOVIES_REVIEWS}>Reviews</Link>
-        </li>
+
+        <Link to={routes.MOVIES_CAST}>
+          <button>Cast</button>
+        </Link>
+
+        <Link to={routes.MOVIES_REVIEWS}>
+          <button>Reviews</button>
+        </Link>
       </ul>
       <Outlet />
     </>

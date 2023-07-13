@@ -1,7 +1,11 @@
+import ReviewItem from 'components/ReviewItem';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
 import { getReviews } from 'services/ApiService';
+// import { ReviewItem } from 'components/ReviewItem';
+
+import { Container } from './Reviews.styled';
 
 const Reviews = () => {
   const { movieId } = useParams();
@@ -22,8 +26,39 @@ const Reviews = () => {
     getData(movieId);
   }, [movieId]);
 
-  console.log('movieReviews:', movieReviews);
-
-  return <div>Reviews {movieId} </div>;
+  return (
+    <Container>
+      <ul>
+        {movieReviews.length !== 0 ? (
+          movieReviews.map(item => {
+            return (
+              <li key={item.id}>
+                <ReviewItem reviewItem={item} />
+              </li>
+            );
+          })
+        ) : (
+          <p>We dont have any reviews for this movie</p>
+        )}
+      </ul>
+    </Container>
+  );
 };
 export default Reviews;
+
+// <ul>
+//   {movieReviews.map(item => {
+//     return <li key={item.id}>{console.log(item)}</li>;
+//   })}
+// </ul>;
+
+//  {reviewsMovie.length !== 0 ? (
+//           reviewsMovie.map(review => (
+//             <li key={review.id}>
+//               <Author>Author: {review.author}</Author>
+//               <p>{review.content}</p>
+//             </li>
+//           ))
+//         ) : (
+//           <p>We dont have any reviews for this movie</p>
+//         )}

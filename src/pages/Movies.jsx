@@ -5,15 +5,16 @@ import { getTrending } from 'services/ApiService';
 
 const Movies = () => {
   const [gallery, setGallery] = useState([]);
-  const [galleryPage, setGalleryPage] = useState(1);
+  // const [galleryPage, setGalleryPage] = useState(1);
 
   useEffect(() => {
     const getData = async period => {
       try {
-        const { results, page } = await getTrending(period);
+        // const { results, page } = await getTrending(period);
+        const { results } = await getTrending(period);
 
         setGallery(results);
-        setGalleryPage(page);
+        // setGalleryPage(page);
       } catch (error) {
         console.log(error);
       } finally {
