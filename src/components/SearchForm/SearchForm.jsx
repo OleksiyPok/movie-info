@@ -1,7 +1,17 @@
-// import { useEffect } from 'react';
+// import { Form } from './SearchForm.styled';
 
 const SearchForm = () => {
-  // useEffect(()=>{},[])
-  return <div>Search form</div>;
+  return (
+    <form>
+      <input
+        name="search"
+        type="text"
+        autoComplete="off"
+        autoFocus
+        placeholder="Search movies"
+      />
+      <button type="submit">Search</button>
+    </form>
+  );
 };
 export default SearchForm;

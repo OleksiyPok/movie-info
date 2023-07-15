@@ -1,40 +1,36 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-
-import { getTrending } from 'services/ApiService';
+import SearchForm from 'components/SearchForm';
+import { getSearch } from 'services/ApiService';
+import { useSearchParams } from 'react-router-dom';
+import MovieList from 'components/MovieList';
 
 const Movies = () => {
-  const [gallery, setGallery] = useState([]);
-  // const [galleryPage, setGalleryPage] = useState(1);
+  const [searchResults, setSearchResults] = useState([]);
+  // const [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams] = useSearchParams();
+  const query = searchParams.get('search') ?? '';
 
   useEffect(() => {
-    const getData = async period => {
+    const getData = async searchQuery => {
       try {
-        // const { results, page } = await getTrending(period);
-        const { results } = await getTrending(period);
+        const { results } = await getSearch(searchQuery);
 
-        setGallery(results);
-        // setGalleryPage(page);
+        setSearchResults(results);
       } catch (error) {
         console.log(error);
       } finally {
       }
     };
 
-    getData('day');
-    // getData('week');
-  }, []);
+    getData(query);
+  }, [query]);
 
   return (
-    <ul>
-      {gallery.map(movie => {
-        return (
-          <li key={movie.id}>
-            <Link to={`${movie.id}`}>{movie.title}</Link>
-          </li>
-        );
-      })}
-    </ul>
+    <>
+      <SearchForm />
+      <MovieList movies={searchResults} />
+    </>
   );
 };
+
 export default Movies;

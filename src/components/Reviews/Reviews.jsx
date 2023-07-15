@@ -30,10 +30,10 @@ const Reviews = () => {
     <Container>
       <ul>
         {movieReviews.length !== 0 ? (
-          movieReviews.map(item => {
+          movieReviews.map(reviewItem => {
             return (
-              <li key={item.id}>
-                <ReviewItem reviewItem={item} />
+              <li key={reviewItem.id}>
+                <ReviewItem reviewItem={reviewItem} />
               </li>
             );
           })
