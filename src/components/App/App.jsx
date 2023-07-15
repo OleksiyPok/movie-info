@@ -6,14 +6,14 @@ import routes from 'routes';
 
 import Home from 'pages/Home';
 // import Movies from 'pages/Movies';
-import MoviesDetails from 'pages/MoviesDetails';
-import Cast from 'components/Cast';
-import Reviews from 'components/Reviews';
+// import MoviesDetails from 'pages/MoviesDetails';
+// import Cast from 'components/Cast';
+// import Reviews from 'components/Reviews';
 
 const Movies = lazy(() => import('pages/Movies'));
-// const MoviesDetails = lazy(() => import('pages/MoviesDetails'));
-// const Cast = lazy(() => import('components/Cast'));
-// const Reviews = lazy(() => import('components/Reviews'));
+const MoviesDetails = lazy(() => import('pages/MoviesDetails'));
+const Cast = lazy(() => import('components/Cast'));
+const Reviews = lazy(() => import('components/Reviews'));
 
 export const App = () => {
   return (

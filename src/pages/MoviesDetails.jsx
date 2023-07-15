@@ -35,7 +35,7 @@ const MoviesDetails = () => {
   }, [movieId]);
 
   return (
-    <Suspense>
+    <>
       <button onClick={goBack}>Go back</button>
       <button onClick={goForward}>Go forward</button>
 
@@ -55,8 +55,10 @@ const MoviesDetails = () => {
           <button>Reviews</button>
         </Link>
       </ul>
-      <Outlet />
-    </Suspense>
+      <Suspense>
+        <Outlet />
+      </Suspense>
+    </>
   );
 };
 

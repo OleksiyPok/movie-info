@@ -1,4 +1,4 @@
-import { useState, useEffect, Suspense } from 'react';
+import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
 import { getCast } from 'services/ApiService';
@@ -26,7 +26,7 @@ const Cast = () => {
   }, [movieId]);
 
   return (
-    <Suspense>
+    <>
       <Container>
         <Ul>
           {movieCast.map(actor => {
@@ -38,7 +38,7 @@ const Cast = () => {
           })}
         </Ul>
       </Container>
-    </Suspense>
+    </>
   );
 };
 export default Cast;
