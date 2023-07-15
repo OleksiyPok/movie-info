@@ -25,8 +25,6 @@ const Cast = () => {
     getData(movieId);
   }, [movieId]);
 
-  console.log('movieCast:', movieCast);
-
   return (
     <Container>
       <Ul>

@@ -22,6 +22,7 @@ const Home = () => {
 
   return (
     <>
+      <h1>Most popular of the day</h1>
       <MovieList movies={trendMovies} />
     </>
   );

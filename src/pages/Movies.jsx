@@ -27,6 +27,7 @@ const Movies = () => {
 
   return (
     <>
+      <h1>Movie search</h1>
       <SearchForm />
       <MovieList movies={searchResults} />
     </>

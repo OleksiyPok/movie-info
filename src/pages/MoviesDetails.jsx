@@ -1,10 +1,13 @@
 import { useState, useEffect } from 'react';
-import { Link, Outlet, useParams } from 'react-router-dom';
+import { Link, Outlet, useParams, useNavigate } from 'react-router-dom';
 import routes from 'routes';
 import { getDetails } from 'services/ApiService';
 
 const MoviesDetails = () => {
   const { movieId } = useParams();
+  const navigate = useNavigate();
+  const goBack = () => navigate(-1);
+  const goForward = () => navigate(1);
 
   const [movieTitle, setMovieTitle] = useState('');
   const [movieOriginalTitle, setMovieOriginalTitle] = useState();
@@ -33,6 +36,11 @@ const MoviesDetails = () => {
 
   return (
     <>
+      <button onClick={goBack}>Go back</button>
+      <button onClick={goForward}>Go forward</button>
+
+      <h1>Movie details</h1>
+
       <ul>
         <li>Title: {movieTitle}</li>
         <li>Original name: {movieOriginalTitle}</li>
