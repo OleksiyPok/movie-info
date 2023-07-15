@@ -1,5 +1,5 @@
 import ReviewItem from 'components/ReviewItem';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { useParams } from 'react-router-dom';
 
 import { getReviews } from 'services/ApiService';
@@ -27,21 +27,23 @@ const Reviews = () => {
   }, [movieId]);
 
   return (
-    <Container>
-      <ul>
-        {movieReviews.length !== 0 ? (
-          movieReviews.map(reviewItem => {
-            return (
-              <li key={reviewItem.id}>
-                <ReviewItem reviewItem={reviewItem} />
-              </li>
-            );
-          })
-        ) : (
-          <p>We dont have any reviews for this movie</p>
-        )}
-      </ul>
-    </Container>
+    <Suspense>
+      <Container>
+        <ul>
+          {movieReviews.length !== 0 ? (
+            movieReviews.map(reviewItem => {
+              return (
+                <li key={reviewItem.id}>
+                  <ReviewItem reviewItem={reviewItem} />
+                </li>
+              );
+            })
+          ) : (
+            <p>We dont have any reviews for this movie</p>
+          )}
+        </ul>
+      </Container>
+    </Suspense>
   );
 };
 export default Reviews;

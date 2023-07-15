@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { Link, Outlet, useParams, useNavigate } from 'react-router-dom';
 import routes from 'routes';
 import { getDetails } from 'services/ApiService';
@@ -35,7 +35,7 @@ const MoviesDetails = () => {
   }, [movieId]);
 
   return (
-    <>
+    <Suspense>
       <button onClick={goBack}>Go back</button>
       <button onClick={goForward}>Go forward</button>
 
@@ -56,7 +56,7 @@ const MoviesDetails = () => {
         </Link>
       </ul>
       <Outlet />
-    </>
+    </Suspense>
   );
 };
 
