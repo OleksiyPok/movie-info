@@ -1,7 +1,8 @@
-// import defaultPhoto from 'images/comingSoon.jpg';
 import defaultPhoto from 'images/comingSoon_200x300.jpg';
 
 import { Container, Photo } from './Actor.styled';
+
+// import PropTypes from 'prop-types'
 
 const Actor = ({ actorDetails }) => {
   const { character, name, profile_path } = actorDetails;
@@ -17,4 +18,9 @@ const Actor = ({ actorDetails }) => {
     </Container>
   );
 };
+
+// Actor.propTypes = {
+
+// }
+
 export default Actor;
