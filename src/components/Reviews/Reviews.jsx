@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import { getReviews } from 'services/ApiService';
 import ReviewItem from 'components/ReviewItem';
 
-import { Container } from './Reviews.styled';
+import { Container, Ul } from './Reviews.styled';
 
 // import PropTypes from 'prop-types'
 
@@ -30,19 +30,15 @@ const Reviews = () => {
   return (
     <Suspense>
       <Container>
-        <ul>
+        <Ul>
           {movieReviews.length !== 0 ? (
             movieReviews.map(reviewItem => {
-              return (
-                <li key={reviewItem.id}>
-                  <ReviewItem reviewItem={reviewItem} />
-                </li>
-              );
+              return <ReviewItem reviewItem={reviewItem} />;
             })
           ) : (
             <p>We dont have any reviews for this movie</p>
           )}
-        </ul>
+        </Ul>
       </Container>
     </Suspense>
   );

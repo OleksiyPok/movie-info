@@ -15,3 +15,5 @@ export const Photo = styled.img`
   justify-content: center;
   border-radius: 5px;
 `;
+
+export const Li = styled.li``;

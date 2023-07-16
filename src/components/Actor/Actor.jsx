@@ -1,6 +1,6 @@
 import defaultPhoto from 'images/comingSoon_200x300.jpg';
 
-import { Container, Photo } from './Actor.styled';
+import { Container, Photo, Li } from './Actor.styled';
 
 // import PropTypes from 'prop-types'
 
@@ -12,9 +12,11 @@ const Actor = ({ actorDetails }) => {
 
   return (
     <Container>
-      <Photo src={actorPhoto} alt={name} />
-      <p>Character: {character}</p>
-      <p>{name}</p>
+      <Li key={actorDetails.id}>
+        <Photo src={actorPhoto} alt={name} />
+        <p>{name}</p>
+        <p>Character: {character}</p>
+      </Li>
     </Container>
   );
 };

@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import { getCast } from 'services/ApiService';
 import Actor from 'components/Actor';
 
-import { Container, Ul, Li } from './Cast.styled';
+import { Container, Ul } from './Cast.styled';
 
 // import PropTypes from 'prop-types'
 
@@ -31,12 +31,8 @@ const Cast = () => {
     <>
       <Container>
         <Ul>
-          {movieCast.map(actor => {
-            return (
-              <Li key={actor.id}>
-                <Actor actorDetails={actor} />
-              </Li>
-            );
+          {movieCast.map(actorDetails => {
+            return <Actor actorDetails={actorDetails} />;
           })}
         </Ul>
       </Container>

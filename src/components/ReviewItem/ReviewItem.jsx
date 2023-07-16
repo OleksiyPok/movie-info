@@ -1,4 +1,4 @@
-import { Container, Author, Content } from './ReviewItem.styled';
+import { Container, Author, Content, Li } from './ReviewItem.styled';
 
 // import PropTypes from 'prop-types'
 
@@ -7,8 +7,10 @@ const ReviewItem = ({ reviewItem }) => {
 
   return (
     <Container>
-      <Author>{author}</Author>
-      <Content>{content}</Content>
+      <Li key={reviewItem.id}>
+        <Author>{author}</Author>
+        <Content>{content}</Content>
+      </Li>
     </Container>
   );
 };
