@@ -5,10 +5,6 @@ import Layout from 'components/Layout';
 import routes from 'routes';
 
 import Home from 'pages/Home';
-// import Movies from 'pages/Movies';
-// import MoviesDetails from 'pages/MoviesDetails';
-// import Cast from 'components/Cast';
-// import Reviews from 'components/Reviews';
 
 const Movies = lazy(() => import('pages/Movies'));
 const MoviesDetails = lazy(() => import('pages/MoviesDetails'));

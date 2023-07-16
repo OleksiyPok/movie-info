@@ -25,9 +25,6 @@ const MoviesDetails = () => {
   useEffect(() => {
     const getData = async movieId => {
       try {
-        // const res = await getDetails(movieId);
-        // console.log('res:', res);
-
         const {
           title,
           original_title,

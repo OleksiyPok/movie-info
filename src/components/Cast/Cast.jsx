@@ -6,6 +6,8 @@ import Actor from 'components/Actor';
 
 import { Container, Ul, Li } from './Cast.styled';
 
+// import PropTypes from 'prop-types'
+
 const Cast = () => {
   const { movieId } = useParams();
   const [movieCast, setMovieCast] = useState([]);
@@ -41,4 +43,9 @@ const Cast = () => {
     </>
   );
 };
+
+// Cast.propTypes = {
+
+// }
+
 export default Cast;

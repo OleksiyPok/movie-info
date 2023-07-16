@@ -11,23 +11,20 @@ const MovieList = ({ movies }) => {
   return (
     <ul>
       {movies.map(movie => {
-        const releaseYear = new Date('03-07-2023').getFullYear(
-          movie.release_date
-        );
+        const releaseYear = movie.release_date
+          ? new Date(movie.release_date).getFullYear()
+          : 'Unknown';
 
         const moviePhoto = movie.poster_path
-          ? `https://image.tmdb.org/t/p/w200/${movie.poster_path}`
+          ? `https://image.tmdb.org/t/p/w200${movie.poster_path}`
           : `${defaultPhoto}`;
 
         return (
           <li key={movie.id}>
             <Link to={`/movies/${movie.id}`}>
-              <Photo
-                src={`https://image.tmdb.org/t/p/w200/${moviePhoto}`}
-                alt={movie.title}
-              />
+              <Photo src={moviePhoto} alt={movie.title} />
               <p>Title: {movie.title}</p>
-              <p>{releaseYear}</p>
+              <p>ReleaseYear: {releaseYear}</p>
             </Link>
           </li>
         );

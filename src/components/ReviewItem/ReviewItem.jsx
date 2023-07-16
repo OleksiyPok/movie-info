@@ -1,5 +1,7 @@
 import { Container, Author, Content } from './ReviewItem.styled';
 
+// import PropTypes from 'prop-types'
+
 const ReviewItem = ({ reviewItem }) => {
   const { author, content } = reviewItem;
 
@@ -10,4 +12,9 @@ const ReviewItem = ({ reviewItem }) => {
     </Container>
   );
 };
+
+// ReviewItem.propTypes = {
+
+// }
+
 export default ReviewItem;
