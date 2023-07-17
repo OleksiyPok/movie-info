@@ -1,7 +1,5 @@
 import styled from 'styled-components';
 
-export const Form = styled.form``;
-
 export const Button = styled.button`
   margin: 20px;
   margin-left: 0px;
@@ -20,17 +18,9 @@ export const Input = styled.input`
   border-radius: 0;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
-  /* border-bottom-left-radius: 5px; */
-  &::-webkit-input-placeholder {
-    color: darkblue;
-    padding-left: 10px;
-  }
-  &::-moz-placeholder {
-    color: darkblue;
-    padding-left: 10px;
-  }
+  padding-left: 10px;
+
   &:focus {
     outline: none;
-    /* border: 2px solid darkblue; */
   }
 `;

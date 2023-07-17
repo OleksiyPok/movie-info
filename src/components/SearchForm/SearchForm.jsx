@@ -1,4 +1,4 @@
-import { Form, Button, Input } from './SearchForm.styled';
+import { Button, Input } from './SearchForm.styled';
 
 // import PropTypes from 'prop-types'
 
