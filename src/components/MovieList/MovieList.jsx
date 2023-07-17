@@ -11,8 +11,6 @@ const MovieList = ({ movies }) => {
   return (
     <ul>
       {movies.map(movie => {
-        console.log('movie:', movie);
-
         const releaseYear = movie.release_date
           ? new Date(movie.release_date).getFullYear()
           : 'Unknown';
