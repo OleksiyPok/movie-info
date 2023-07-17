@@ -18,3 +18,9 @@ code {
 html::-webkit-scrollbar {
   width: 0;
 }
+
+h1 {
+  font-size: 32px;
+  margin-top: 14px;
+  margin-bottom: 0;
+}
