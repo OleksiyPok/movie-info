@@ -8,7 +8,8 @@ export const PageTitle = styled.h1`
 `;
 
 export const Button = styled.button`
-  margin-bottom: 20px;
+  margin: 20px;
+  margin-left: 0px;
   width: 150px;
   color: darkblue;
   font-weight: 700;

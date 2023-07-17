@@ -1,18 +1,18 @@
-// import { Form } from './SearchForm.styled';
+import { Form, Button, Input } from './SearchForm.styled';
 
 // import PropTypes from 'prop-types'
 
 const SearchForm = () => {
   return (
     <form>
-      <input
+      <Input
         name="search"
         type="text"
         autoComplete="off"
         autoFocus
         placeholder="Search movies"
       />
-      <button type="submit">Search</button>
+      <Button type="submit">Search</Button>
     </form>
   );
 };

@@ -13,7 +13,6 @@ const MoviesDetails = () => {
   const goBack = () => navigate(-1);
   // const goForward = () => navigate(1);
 
-  console.log('navigate:', navigate);
   return (
     <>
       <PageTitle>Movie details</PageTitle>
@@ -24,11 +23,11 @@ const MoviesDetails = () => {
       <MovieCard />
 
       <Link to={routes.MOVIES_CAST}>
-        <button>Cast</button>
+        <Button>Cast</Button>
       </Link>
 
       <Link to={routes.MOVIES_REVIEWS}>
-        <button>Reviews</button>
+        <Button>Reviews</Button>
       </Link>
 
       <Suspense>
