@@ -1,25 +1,27 @@
 import { Suspense } from 'react';
-import { NavLink, Outlet } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
+
+import { Header, Main, Container, NavMenu, MenuLink } from './Layout.styled';
 
 const Layout = () => {
   return (
     <>
-      <header>
-        <ul>
-          <li>
-            <NavLink to="/">Home</NavLink>
-          </li>
-          <li>
-            <NavLink to="/movies">Movies</NavLink>
-          </li>
-        </ul>
-      </header>
+      <Header>
+        <Container>
+          <NavMenu>
+            <MenuLink to="/">Home</MenuLink>
+            <MenuLink to="/movies">Movies</MenuLink>
+          </NavMenu>
+        </Container>
+      </Header>
 
-      <main>
-        <Suspense>
-          <Outlet />
-        </Suspense>
-      </main>
+      <Main>
+        <Container>
+          <Suspense>
+            <Outlet />
+          </Suspense>
+        </Container>
+      </Main>
     </>
   );
 };

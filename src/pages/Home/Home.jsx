@@ -2,6 +2,8 @@ import MovieList from 'components/MovieList';
 import { useState, useEffect } from 'react';
 import { getTrending } from 'services/ApiService';
 
+import { PageTitle } from './Home.styled';
+
 const Home = () => {
   const [trendMovies, setTrendMovies] = useState([]);
 
@@ -22,7 +24,7 @@ const Home = () => {
 
   return (
     <>
-      <h1>Most popular of the day</h1>
+      <PageTitle>Most popular of the day</PageTitle>
       <MovieList movies={trendMovies} />
     </>
   );

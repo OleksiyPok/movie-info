@@ -4,6 +4,8 @@ import { getSearch } from 'services/ApiService';
 import { useSearchParams } from 'react-router-dom';
 import MovieList from 'components/MovieList';
 
+import { PageTitle } from './Movies.styled';
+
 const Movies = () => {
   const [searchResults, setSearchResults] = useState([]);
   const [searchParams] = useSearchParams();
@@ -26,7 +28,7 @@ const Movies = () => {
 
   return (
     <Suspense>
-      <h1>Movie search</h1>
+      <PageTitle>Movie search</PageTitle>
       <SearchForm />
       <MovieList movies={searchResults} />
     </Suspense>
