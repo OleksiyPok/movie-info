@@ -8,9 +8,14 @@ export const Button = styled.button`
   margin: 20px;
   margin-left: 0px;
   width: 150px;
-  color: darkblue;
-  font-weight: 700;
-  background-color: white;
   border: 2px solid darkblue;
-  border-radius: 5px;
+  border-radius: 6px;
+
+  color: white;
+  background-color: darkblue;
+  font-weight: 400;
+
+  /* color: darkblue;
+  background-color: white;
+  font-weight: 700; */
 `;

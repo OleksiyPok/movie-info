@@ -1,6 +1,9 @@
 import styled from 'styled-components';
 
-export const Container = styled.div``;
+export const ComponentContainer = styled.div`
+  margin: 0;
+  margin-top: 20px;
+`;
 
 export const Photo = styled.img`
   display: flex;

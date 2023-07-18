@@ -6,7 +6,7 @@ import { getDetails } from 'services/ApiService';
 import defaultPhoto from 'images/comingSoon_200x300.jpg';
 
 import {
-  Container,
+  ComponentContainer,
   Photo,
   Description,
   MovieTitle,
@@ -49,13 +49,17 @@ const MovieCard = props => {
           ? `(${new Date(release_date).getFullYear()})`
           : '';
 
+        const genresList = genres
+          ? genres.map(genre => genre.name).join(', ')
+          : '';
+
         setMovieTitle(title);
         setMovieOriginalTitle(original_title);
         setMovieRelease(release);
         setMoviePoster(poster);
         setMovieHomePage(homepage);
         setMovieOverview(overview);
-        setMovieGenres(genres);
+        setMovieGenres(genresList);
       } catch (error) {
         console.log(error);
       } finally {
@@ -65,12 +69,8 @@ const MovieCard = props => {
     getData(movieId);
   }, [movieId]);
 
-  const genresList = movieGenres
-    ? movieGenres.map(genre => genre.name).join(', ')
-    : 'No information';
-
   return (
-    <Container>
+    <ComponentContainer>
       <Photo src={moviePoster} alt={movieTitle} />
 
       <Description>
@@ -78,15 +78,15 @@ const MovieCard = props => {
           {movieTitle} {movieRelease}
         </MovieTitle>
 
-        <SubTitle>
+        <Text>
           Original name: <Span>"{movieOriginalTitle}"</Span>
-        </SubTitle>
+        </Text>
 
-        <SubTitle>Overview: </SubTitle>
+        {movieOverview && <SubTitle>Overview: </SubTitle>}
+        {movieOverview && <Text>{movieOverview}</Text>}
 
-        <Text>{movieOverview}</Text>
-        {genresList.length !== 0 && <SubTitle>Genres: </SubTitle>}
-        <Text>{genresList}</Text>
+        {movieGenres && <SubTitle>Genres: </SubTitle>}
+        {movieGenres && <Text>{movieGenres}</Text>}
 
         <Homepage>
           <a href={movieHomePage} target="_blank" rel="noreferrer">
@@ -94,7 +94,7 @@ const MovieCard = props => {
           </a>
         </Homepage>
       </Description>
-    </Container>
+    </ComponentContainer>
   );
 };
 

@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
-  /* width: 90%; */
+export const ComponentContainer = styled.div`
   margin-left: auto;
   margin-right: auto;
   border: 2px solid darkblue;
@@ -15,8 +14,8 @@ export const Photo = styled.img`
   display: flex;
   width: 300px;
   height: 450px;
-  /* overflow: hidden; */
   justify-content: center;
+  border: 2px solid darkblue;
   border-radius: 8px;
 `;
 
@@ -28,12 +27,13 @@ export const Description = styled.div`
 
 export const MovieTitle = styled.h2`
   margin-top: 0;
-  margin-bottom: 20px;
+  margin-bottom: 0px;
 `;
 
 export const SubTitle = styled.h3`
-  margin-top: 10px;
-  margin-bottom: 4px;
+  font-size: 20px;
+  margin-top: 15px;
+  margin-bottom: 0;
 `;
 
 export const Homepage = styled.p`
@@ -41,8 +41,8 @@ export const Homepage = styled.p`
 `;
 
 export const Text = styled.p`
-  margin-top: 4px;
-  margin-bottom: 8px;
+  margin-top: 10px;
+  margin-bottom: 0;
 `;
 
 export const Span = styled.span``;
