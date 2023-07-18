@@ -5,18 +5,30 @@ export const ComponentContainer = styled.div`
   margin-right: auto;
   border: 2px solid darkblue;
   display: flex;
-  padding: 20px;
-  gap: 20px;
+  flex-direction: column;
+  padding: 10px;
+  gap: 10px;
   border-radius: 8px;
+
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+    padding: 20px;
+    gap: 20px;
+  }
 `;
 
 export const Photo = styled.img`
-  display: flex;
-  width: 300px;
-  height: 450px;
-  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  width: 240px;
+  height: 360px;
   border: 2px solid darkblue;
   border-radius: 8px;
+
+  @media screen and (min-width: 768px) {
+    width: 300px;
+    height: 450px;
+  }
 `;
 
 export const Description = styled.div`
@@ -38,6 +50,8 @@ export const SubTitle = styled.h3`
 
 export const Homepage = styled.p`
   margin-top: auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `;
 
 export const Text = styled.p`
