@@ -23,6 +23,7 @@ export const Button = styled.button`
   font-weight: 700; */
 
   @media screen and (min-width: 768px) {
+    height: 30px;
     margin: 20px;
     margin-left: 0px;
     width: 150px;

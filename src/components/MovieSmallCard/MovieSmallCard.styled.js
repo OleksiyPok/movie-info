@@ -20,7 +20,10 @@ export const Photo = styled.img`
   border-radius: 5px;
 `;
 
-export const Description = styled.div``;
+export const Description = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
 
 export const LinkToMovie = styled(Link)`
   display: flex;
@@ -39,14 +42,16 @@ export const MovieTitle = styled.h2`
 `;
 
 export const SubTitle = styled.h3`
-  margin-top: 30px;
+  margin-top: 40px;
   margin-bottom: 0;
   font-size: 16px;
   color: darkblue;
 `;
 
 export const Text = styled.p`
+  font-size: 16px;
   margin-top: 8px;
+  margin-bottom: 0;
   color: darkblue;
   -webkit-line-clamp: 3; /* Число отображаемых строк */
   display: -webkit-box; /* Включаем флексбоксы */

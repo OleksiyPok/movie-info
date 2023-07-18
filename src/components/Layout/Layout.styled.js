@@ -12,6 +12,9 @@ export const Header = styled.div`
   background-color: darkblue;
   display: flex;
   align-items: center;
+
+  @media screen and (min-width: 768px) {
+    height: 60px;
 `;
 
 export const Main = styled.div``;

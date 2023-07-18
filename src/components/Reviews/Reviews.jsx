@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import { getReviews } from 'services/ApiService';
 import ReviewItem from 'components/ReviewItem';
 
-import { Container, Ul } from './Reviews.styled';
+import { ComponentContainer, Ul } from './Reviews.styled';
 
 // import PropTypes from 'prop-types'
 
@@ -29,7 +29,7 @@ const Reviews = () => {
 
   return (
     <Suspense>
-      <Container>
+      <ComponentContainer>
         <Ul>
           {movieReviews.length !== 0 ? (
             movieReviews.map(reviewItem => {
@@ -39,7 +39,7 @@ const Reviews = () => {
             <p>We dont have any reviews for this movie</p>
           )}
         </Ul>
-      </Container>
+      </ComponentContainer>
     </Suspense>
   );
 };
