@@ -41,12 +41,18 @@ const MovieCard = props => {
           genres,
         } = await getDetails(movieId);
 
+        const poster = poster_path
+          ? `https://image.tmdb.org/t/p/w200/${poster_path}`
+          : defaultPhoto;
+
+        const release = release_date
+          ? `(${new Date(release_date).getFullYear()})`
+          : '';
+
         setMovieTitle(title);
         setMovieOriginalTitle(original_title);
-        setMovieRelease(
-          release_date ? new Date(release_date).getFullYear() : '----'
-        );
-        setMoviePoster(poster_path);
+        setMovieRelease(release);
+        setMoviePoster(poster);
         setMovieHomePage(homepage);
         setMovieOverview(overview);
         setMovieGenres(genres);
@@ -59,32 +65,17 @@ const MovieCard = props => {
     getData(movieId);
   }, [movieId]);
 
-  //   const releaseYear = release_date
-  //     ? new Date(release_date).getFullYear()
-  //     : 'Unknown';
-
-  //   const releaseYear = movieRelease
-  //     ? new Date(movieRelease).getFullYear()
-  //     : 'Unknown';
-
-  const moviePhoto = moviePoster
-    ? `https://image.tmdb.org/t/p/w200/${moviePoster}`
-    : `${defaultPhoto}`;
-
   const genresList = movieGenres
     ? movieGenres.map(genre => genre.name).join(', ')
     : 'No information';
 
   return (
     <Container>
-      <Photo
-        src={`https://image.tmdb.org/t/p/w200/${moviePhoto}`}
-        alt={movieTitle}
-      />
+      <Photo src={moviePoster} alt={movieTitle} />
 
       <Description>
         <MovieTitle>
-          {movieTitle} ({movieRelease})
+          {movieTitle} {movieRelease}
         </MovieTitle>
 
         <SubTitle>
@@ -92,9 +83,9 @@ const MovieCard = props => {
         </SubTitle>
 
         <SubTitle>Overview: </SubTitle>
-        <Text>{movieOverview}</Text>
 
-        <SubTitle>Genres: </SubTitle>
+        <Text>{movieOverview}</Text>
+        {genresList.length !== 0 && <SubTitle>Genres: </SubTitle>}
         <Text>{genresList}</Text>
 
         <Homepage>
