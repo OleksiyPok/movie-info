@@ -11,14 +11,12 @@ import { PageTitle, Button } from './MoviesDetails.styled';
 const MoviesDetails = () => {
   const navigate = useNavigate();
   const goBack = () => navigate(-1);
-  // const goForward = () => navigate(1);
 
   return (
     <>
       <PageTitle>Movie details</PageTitle>
 
       <Button onClick={goBack}>Go back</Button>
-      {/* <Button onClick={goForward}>Go forward</Button> */}
 
       <MovieCard />
 

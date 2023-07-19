@@ -5,7 +5,6 @@ import defaultPhoto from 'images/comingSoon_200x300.jpg';
 
 import {
   ComponentContainer,
-  LinkToMovie,
   Photo,
   Description,
   MovieTitle,
@@ -27,18 +26,16 @@ const MovieSmallCard = ({ movie }) => {
     : '';
 
   return (
-    <ComponentContainer>
-      <LinkToMovie to={`/movies/${id}`}>
-        <Photo src={poster} alt={title} />
+    <ComponentContainer to={`/movies/${id}`}>
+      <Photo src={poster} alt={title} />
 
-        <Description>
-          <MovieTitle>
-            {title} {release}
-          </MovieTitle>
-          {overview && <SubTitle>Overview: </SubTitle>}
-          <Text>{overview}</Text>
-        </Description>
-      </LinkToMovie>
+      <Description>
+        <MovieTitle>
+          {title} {release}
+        </MovieTitle>
+        {overview && <SubTitle>Overview: </SubTitle>}
+        <Text>{overview}</Text>
+      </Description>
     </ComponentContainer>
   );
 };

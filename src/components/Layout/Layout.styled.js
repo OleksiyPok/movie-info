@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 
 export const Container = styled.div`
   width: 90%;
+  max-width: 1440px;
   margin-left: auto;
   margin-right: auto;
 `;
@@ -15,6 +16,7 @@ export const Header = styled.div`
 
   @media screen and (min-width: 768px) {
     height: 60px;
+  }
 `;
 
 export const Main = styled.div``;
@@ -36,7 +38,6 @@ export const MenuLink = styled(NavLink)`
   }
   &.active {
     color: yellow;
-    /* text-decoration: underline; */
     font-weight: 700;
   }
 `;

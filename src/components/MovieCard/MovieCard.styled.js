@@ -10,7 +10,7 @@ export const ComponentContainer = styled.div`
   gap: 10px;
   border-radius: 8px;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 1024px) {
     flex-direction: row;
     padding: 20px;
     gap: 20px;
@@ -20,15 +20,10 @@ export const ComponentContainer = styled.div`
 export const Photo = styled.img`
   margin-left: auto;
   margin-right: auto;
-  width: 240px;
-  height: 360px;
+  width: 300px;
+  height: 450px;
   border: 2px solid darkblue;
   border-radius: 8px;
-
-  @media screen and (min-width: 768px) {
-    width: 300px;
-    height: 450px;
-  }
 `;
 
 export const Description = styled.div`
@@ -48,15 +43,13 @@ export const SubTitle = styled.h3`
   margin-bottom: 0;
 `;
 
-export const Homepage = styled.p`
+export const Text = styled.p`
+  margin-top: 10px;
+  margin-bottom: 10px;
+`;
+
+export const Homepage = styled.a`
   margin-top: auto;
   overflow: hidden;
   text-overflow: ellipsis;
 `;
-
-export const Text = styled.p`
-  margin-top: 10px;
-  margin-bottom: 0;
-`;
-
-export const Span = styled.span``;

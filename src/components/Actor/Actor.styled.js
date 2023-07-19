@@ -1,19 +1,13 @@
 import styled from 'styled-components';
 
 export const ComponentContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border-radius: 8px;
-  border: 1px solid darkblue;
-`;
-
-export const Li = styled.li`
   margin-bottom: 15px;
   max-width: 200px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  border-radius: 8px;
+  border: 1px solid darkblue;
 `;
 
 export const Photo = styled.img`
@@ -38,4 +32,5 @@ export const Text = styled.p`
   margin-top: 0;
   margin-bottom: 0;
   text-align: center;
+  margin-bottom: 10px;
 `;

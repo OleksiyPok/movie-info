@@ -18,10 +18,6 @@ export const Button = styled.button`
   background-color: darkblue;
   font-weight: 400;
 
-  /* color: darkblue;
-  background-color: white;
-  font-weight: 700; */
-
   @media screen and (min-width: 768px) {
     height: 30px;
     margin: 20px;

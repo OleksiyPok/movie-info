@@ -11,7 +11,6 @@ import {
   Description,
   MovieTitle,
   Text,
-  Span,
   Homepage,
   SubTitle,
 } from './MovieCard.styled';
@@ -78,9 +77,9 @@ const MovieCard = props => {
           {movieTitle} {movieRelease}
         </MovieTitle>
 
-        <Text>
-          Original name: <Span>"{movieOriginalTitle}"</Span>
-        </Text>
+        {movieOriginalTitle && (
+          <Text>Original name: "{movieOriginalTitle}"</Text>
+        )}
 
         {movieOverview && <SubTitle>Overview: </SubTitle>}
         <Text>{movieOverview}</Text>
@@ -88,11 +87,11 @@ const MovieCard = props => {
         {movieGenres && <SubTitle>Genres: </SubTitle>}
         <Text>{movieGenres}</Text>
 
-        <Homepage>
-          <a href={movieHomePage} target="_blank" rel="noreferrer">
+        {movieHomePage && (
+          <Homepage href={movieHomePage} target="_blank" rel="noreferrer">
             {movieHomePage}
-          </a>
-        </Homepage>
+          </Homepage>
+        )}
       </Description>
     </ComponentContainer>
   );
