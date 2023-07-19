@@ -15,7 +15,6 @@ const Actor = ({ actorDetails }) => {
       <Li key={actorDetails.id}>
         <Photo src={actorPhoto} alt={name} />
         <SubTitle>{name}</SubTitle>
-        <Text>Character:</Text>
         <Text>{character}</Text>
       </Li>
     </ComponentContainer>

@@ -83,10 +83,10 @@ const MovieCard = props => {
         </Text>
 
         {movieOverview && <SubTitle>Overview: </SubTitle>}
-        {movieOverview && <Text>{movieOverview}</Text>}
+        <Text>{movieOverview}</Text>
 
         {movieGenres && <SubTitle>Genres: </SubTitle>}
-        {movieGenres && <Text>{movieGenres}</Text>}
+        <Text>{movieGenres}</Text>
 
         <Homepage>
           <a href={movieHomePage} target="_blank" rel="noreferrer">

@@ -11,24 +11,12 @@ import {
   MovieTitle,
   SubTitle,
   Text,
-  //   Span,
-  //   Homepage,
 } from './MovieSmallCard.styled';
 
 // import PropTypes from 'prop-types';
 
 const MovieSmallCard = ({ movie }) => {
-  //   console.log('movie:', movie);
-
-  const {
-    id,
-    title,
-    release_date,
-    poster_path,
-    overview,
-    // genres
-  } = movie;
-  //   console.log('title:', title);
+  const { id, title, release_date, poster_path, overview } = movie;
 
   const poster = poster_path
     ? `https://image.tmdb.org/t/p/w200/${poster_path}`
@@ -47,7 +35,7 @@ const MovieSmallCard = ({ movie }) => {
           <MovieTitle>
             {title} {release}
           </MovieTitle>
-          <SubTitle>Overview: </SubTitle>
+          {overview && <SubTitle>Overview: </SubTitle>}
           <Text>{overview}</Text>
         </Description>
       </LinkToMovie>
