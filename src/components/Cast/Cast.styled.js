@@ -1,6 +1,12 @@
 import styled from 'styled-components';
 
-export const Container = styled.div``;
+export const ComponentContainer = styled.div`
+  border: 2px solid darkblue;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  border-radius: 8px;
+`;
 
 export const Ul = styled.ul`
   list-style: none;

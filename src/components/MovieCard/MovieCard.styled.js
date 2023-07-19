@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 
 export const ComponentContainer = styled.div`
+  border: 2px solid darkblue;
   margin-left: auto;
   margin-right: auto;
-  border: 2px solid darkblue;
   display: flex;
   flex-direction: column;
   padding: 10px;
