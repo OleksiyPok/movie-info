@@ -1,7 +1,8 @@
 import React from 'react';
-// import { Link } from 'react-router-dom';
 
 import defaultPhoto from 'images/comingSoon_200x300.jpg';
+
+import PropTypes from 'prop-types';
 
 import {
   ComponentContainer,
@@ -11,8 +12,6 @@ import {
   SubTitle,
   Text,
 } from './MovieSmallCard.styled';
-
-// import PropTypes from 'prop-types';
 
 const MovieSmallCard = ({ movie }) => {
   const { id, title, release_date, poster_path, overview } = movie;
@@ -40,6 +39,12 @@ const MovieSmallCard = ({ movie }) => {
   );
 };
 
-// MovieSmallCard.propTypes = {};
+MovieSmallCard.propTypes = {
+  id: PropTypes.number,
+  title: PropTypes.string,
+  release_date: PropTypes.string,
+  poster_path: PropTypes.string,
+  overview: PropTypes.string,
+};
 
 export default MovieSmallCard;

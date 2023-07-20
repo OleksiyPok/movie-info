@@ -2,7 +2,7 @@ import defaultPhoto from 'images/comingSoon_200x300.jpg';
 
 import { ComponentContainer, Photo, SubTitle, Text } from './Actor.styled';
 
-// import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 
 const Actor = ({ actorDetails }) => {
   const { character, name, profile_path } = actorDetails;
@@ -20,8 +20,12 @@ const Actor = ({ actorDetails }) => {
   );
 };
 
-// Actor.propTypes = {
-
-// }
+Actor.propTypes = {
+  actorDetails: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    character: PropTypes.string.isRequired,
+    profile_path: PropTypes.string,
+  }).isRequired,
+};
 
 export default Actor;

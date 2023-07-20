@@ -15,9 +15,7 @@ import {
   SubTitle,
 } from './MovieCard.styled';
 
-// import PropTypes from 'prop-types';
-
-const MovieCard = props => {
+const MovieCard = () => {
   const { movieId } = useParams();
   const [movieTitle, setMovieTitle] = useState('');
   const [movieRelease, setMovieRelease] = useState('');
@@ -96,7 +94,5 @@ const MovieCard = props => {
     </ComponentContainer>
   );
 };
-
-// MovieCard.propTypes = {};
 
 export default MovieCard;

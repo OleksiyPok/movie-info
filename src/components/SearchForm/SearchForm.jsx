@@ -1,7 +1,5 @@
 import { Button, Input } from './SearchForm.styled';
 
-// import PropTypes from 'prop-types'
-
 const SearchForm = () => {
   return (
     <form>
@@ -16,9 +14,5 @@ const SearchForm = () => {
     </form>
   );
 };
-
-// SearchForm.propTypes = {
-
-// }
 
 export default SearchForm;

@@ -6,8 +6,6 @@ import Actor from 'components/Actor';
 
 import { ComponentContainer } from './Cast.styled';
 
-// import PropTypes from 'prop-types'
-
 const Cast = () => {
   const { movieId } = useParams();
   const [movieCast, setMovieCast] = useState([]);
@@ -30,14 +28,10 @@ const Cast = () => {
   return (
     <ComponentContainer>
       {movieCast.map(actorDetails => (
-        <Actor actorDetails={actorDetails} />
+        <Actor key={actorDetails.id} actorDetails={actorDetails} />
       ))}
     </ComponentContainer>
   );
 };
-
-// Cast.propTypes = {
-
-// }
 
 export default Cast;

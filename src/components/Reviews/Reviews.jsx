@@ -6,8 +6,6 @@ import ReviewItem from 'components/ReviewItem';
 
 import { ComponentContainer } from './Reviews.styled';
 
-// import PropTypes from 'prop-types'
-
 const Reviews = () => {
   const { movieId } = useParams();
   const [movieReviews, setMovieReviews] = useState('');
@@ -32,7 +30,7 @@ const Reviews = () => {
       <ComponentContainer>
         {movieReviews.length !== 0 ? (
           movieReviews.map(reviewItem => {
-            return <ReviewItem reviewItem={reviewItem} />;
+            return <ReviewItem key={reviewItem.id} reviewItem={reviewItem} />;
           })
         ) : (
           <p>We dont have any reviews for this movie</p>
@@ -41,9 +39,5 @@ const Reviews = () => {
     </Suspense>
   );
 };
-
-// Reviews.propTypes = {
-
-// }
 
 export default Reviews;

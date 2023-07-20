@@ -12,6 +12,8 @@ import axios from 'axios';
 // https://api.themoviedb.org/3/movie/{movie_id}/credits
 // https://api.themoviedb.org/3/movie/{movie_id}/reviews
 
+// https://image.tmdb.org/t/p/w200/{profile_path}
+
 const API_KEY = '4660cb84fc1f03c60267a22186b72ac0';
 
 axios.defaults.baseURL = 'https://api.themoviedb.org/3';

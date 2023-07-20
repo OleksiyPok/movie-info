@@ -2,9 +2,9 @@ import React from 'react';
 
 import MovieSmallCard from 'components/MovieSmallCard';
 
-import { ComponentContainer } from './MovieList.styled';
+import PropTypes from 'prop-types';
 
-// import PropTypes from 'prop-types'
+import { ComponentContainer } from './MovieList.styled';
 
 const MovieList = ({ movies }) => {
   return (
@@ -16,8 +16,6 @@ const MovieList = ({ movies }) => {
   );
 };
 
-// MovieList.propTypes = {
-
-// }
+MovieList.propTypes = { movies: PropTypes.array };
 
 export default MovieList;

@@ -6,14 +6,12 @@ import routes from 'routes';
 import MovieCard from 'components/MovieCard';
 import { PageTitle, Button } from './MoviesDetails.styled';
 
-// import PropTypes from 'prop-types'
-
 const MoviesDetails = () => {
   const navigate = useNavigate();
   const goBack = () => navigate(-1);
 
   return (
-    <>
+    <Suspense>
       <PageTitle>Movie details</PageTitle>
 
       <Button onClick={goBack}>Go back</Button>
@@ -31,12 +29,8 @@ const MoviesDetails = () => {
       <Suspense>
         <Outlet />
       </Suspense>
-    </>
+    </Suspense>
   );
 };
-
-// MoviesDetails.propTypes = {
-
-// }
 
 export default MoviesDetails;
