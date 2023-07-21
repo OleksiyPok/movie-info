@@ -1,8 +1,3 @@
-import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-
-import { getDetails } from 'services/ApiService';
-
 import defaultPhoto from 'images/comingSoon_200x300.jpg';
 
 import {
@@ -15,79 +10,47 @@ import {
   SubTitle,
 } from './MovieCard.styled';
 
-const MovieCard = () => {
-  const { movieId } = useParams();
-  const [movieTitle, setMovieTitle] = useState('');
-  const [movieRelease, setMovieRelease] = useState('');
-  const [movieOriginalTitle, setMovieOriginalTitle] = useState();
-  const [moviePoster, setMoviePoster] = useState('');
-  const [movieOverview, setMovieOverview] = useState(0);
-  const [movieGenres, setMovieGenres] = useState('');
-  const [movieHomePage, setMovieHomePage] = useState('');
+const MovieCard = ({ movieDetails }) => {
+  const {
+    title,
+    original_title,
+    release_date,
+    poster_path,
+    homepage,
+    overview,
+    genres,
+  } = movieDetails;
 
-  useEffect(() => {
-    const getData = async movieId => {
-      try {
-        const {
-          title,
-          original_title,
-          release_date,
-          poster_path,
-          homepage,
-          overview,
-          genres,
-        } = await getDetails(movieId);
+  const poster = poster_path
+    ? `https://image.tmdb.org/t/p/w200/${poster_path}`
+    : defaultPhoto;
 
-        const poster = poster_path
-          ? `https://image.tmdb.org/t/p/w200/${poster_path}`
-          : defaultPhoto;
+  const release = release_date
+    ? `(${new Date(release_date).getFullYear()})`
+    : '';
 
-        const release = release_date
-          ? `(${new Date(release_date).getFullYear()})`
-          : '';
-
-        const genresList = genres
-          ? genres.map(genre => genre.name).join(', ')
-          : '';
-
-        setMovieTitle(title);
-        setMovieOriginalTitle(original_title);
-        setMovieRelease(release);
-        setMoviePoster(poster);
-        setMovieHomePage(homepage);
-        setMovieOverview(overview);
-        setMovieGenres(genresList);
-      } catch (error) {
-        console.log(error.message);
-      } finally {
-      }
-    };
-
-    getData(movieId);
-  }, [movieId]);
+  const genresList = genres ? genres.map(genre => genre.name).join(', ') : '';
 
   return (
     <ComponentContainer>
-      <Photo src={moviePoster} alt={movieTitle} />
+      <Photo src={poster} alt={title} />
 
       <Description>
         <MovieTitle>
-          {movieTitle} {movieRelease}
+          {title} {release}
         </MovieTitle>
 
-        {movieOriginalTitle && (
-          <Text>Original name: "{movieOriginalTitle}"</Text>
-        )}
+        {original_title && <Text>Original name: "{original_title}"</Text>}
 
-        {movieOverview && <SubTitle>Overview: </SubTitle>}
-        <Text>{movieOverview}</Text>
+        {overview && <SubTitle>Overview: </SubTitle>}
+        <Text>{overview}</Text>
 
-        {movieGenres && <SubTitle>Genres: </SubTitle>}
-        <Text>{movieGenres}</Text>
+        {genres && <SubTitle>Genres: </SubTitle>}
+        <Text>{genresList}</Text>
 
-        {movieHomePage && (
-          <Homepage href={movieHomePage} target="_blank" rel="noreferrer">
-            {movieHomePage}
+        {homepage && (
+          <Homepage href={homepage} target="_blank" rel="noreferrer">
+            {homepage}
           </Homepage>
         )}
       </Description>
