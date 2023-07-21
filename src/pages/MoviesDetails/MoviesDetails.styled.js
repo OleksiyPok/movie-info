@@ -9,10 +9,10 @@ export const PageTitle = styled.h1``;
 export const Button = styled(Link)`
   display: inline-block;
   text-decoration: none;
-  padding-top: 5px;
+  padding-top: 4px;
   text-align: center;
   margin: 20px;
-  height: 30px;
+  height: 28px;
   width: 100%;
   margin-left: 0px;
 

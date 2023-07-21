@@ -1,11 +1,10 @@
 import { lazy } from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 
 import Layout from 'components/Layout';
 import routes from 'routes';
 
-import Home from 'pages/Home';
-
+const Home = lazy(() => import('pages/Home'));
 const Movies = lazy(() => import('pages/Movies'));
 const MoviesDetails = lazy(() => import('pages/MoviesDetails'));
 const Cast = lazy(() => import('components/Cast'));
@@ -20,6 +19,7 @@ export const App = () => {
         <Route path={routes.MOVIES_ID} element={<MoviesDetails />}>
           <Route path={routes.MOVIES_CAST} element={<Cast />} />
           <Route path={routes.MOVIES_REVIEWS} element={<Reviews />} />
+          <Route path={routes.ANY} element={<Navigate to="/" replace />} />
         </Route>
       </Route>
     </Routes>
