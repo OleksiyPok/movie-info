@@ -14,7 +14,7 @@ const Home = () => {
 
         setTrendMovies(results);
       } catch (error) {
-        console.log(error);
+        console.log(error.message);
       } finally {
       }
     };

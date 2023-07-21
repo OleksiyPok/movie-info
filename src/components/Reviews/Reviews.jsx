@@ -17,7 +17,7 @@ const Reviews = () => {
 
         setMovieReviews(results);
       } catch (error) {
-        console.log(error);
+        console.log(error.message);
       } finally {
       }
     };

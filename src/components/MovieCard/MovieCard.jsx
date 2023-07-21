@@ -58,7 +58,7 @@ const MovieCard = () => {
         setMovieOverview(overview);
         setMovieGenres(genresList);
       } catch (error) {
-        console.log(error);
+        console.log(error.message);
       } finally {
       }
     };

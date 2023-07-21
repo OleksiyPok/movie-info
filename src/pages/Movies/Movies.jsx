@@ -17,7 +17,7 @@ const Movies = () => {
         const { results } = await getSearch(searchQuery);
         setSearchResults(results);
       } catch (error) {
-        console.log(error);
+        console.log(error.message);
       } finally {
       }
     };

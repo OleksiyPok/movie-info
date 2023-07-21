@@ -1,10 +1,10 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { useParams } from 'react-router-dom';
 
 import { getCast } from 'services/ApiService';
 import Actor from 'components/Actor';
 
-import { ComponentContainer } from './Cast.styled';
+import { ComponentContainer, CastContainer } from './Cast.styled';
 
 const Cast = () => {
   const { movieId } = useParams();
@@ -17,7 +17,7 @@ const Cast = () => {
 
         setMovieCast(cast);
       } catch (error) {
-        console.log(error);
+        console.log(error.message);
       } finally {
       }
     };
@@ -26,11 +26,21 @@ const Cast = () => {
   }, [movieId]);
 
   return (
-    <ComponentContainer>
-      {movieCast.map(actorDetails => (
-        <Actor key={actorDetails.id} actorDetails={actorDetails} />
-      ))}
-    </ComponentContainer>
+    <Suspense>
+      <ComponentContainer>
+        {movieCast.length !== 0 ? (
+          movieCast.map(actorDetails => {
+            return (
+              <CastContainer>
+                <Actor key={actorDetails.id} actorDetails={actorDetails} />
+              </CastContainer>
+            );
+          })
+        ) : (
+          <p>We dont have any information about cast for this movie</p>
+        )}
+      </ComponentContainer>
+    </Suspense>
   );
 };
 
