@@ -1,10 +1,10 @@
 import { Suspense } from 'react';
-import { Link, Outlet, useNavigate } from 'react-router-dom';
+import { Outlet, useNavigate } from 'react-router-dom';
 
 import routes from 'routes';
 
 import MovieCard from 'components/MovieCard';
-import { PageTitle, Button } from './MoviesDetails.styled';
+import { Button, PageTitle } from './MoviesDetails.styled';
 
 const MoviesDetails = () => {
   const navigate = useNavigate();
@@ -18,13 +18,8 @@ const MoviesDetails = () => {
 
       <MovieCard />
 
-      <Link to={routes.MOVIES_CAST}>
-        <Button>Cast</Button>
-      </Link>
-
-      <Link to={routes.MOVIES_REVIEWS}>
-        <Button>Reviews</Button>
-      </Link>
+      <Button to={routes.MOVIES_CAST}>Cast</Button>
+      <Button to={routes.MOVIES_REVIEWS}>Reviews</Button>
 
       <Suspense>
         <Outlet />
