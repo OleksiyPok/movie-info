@@ -4,6 +4,7 @@ import { Outlet, useNavigate, useParams } from 'react-router-dom';
 import routes from 'routes';
 import { getDetails } from 'services/ApiService';
 import MovieCard from 'components/MovieCard';
+import Loader from 'components/Loader';
 
 import { Button, PageTitle } from './MoviesDetails.styled';
 
@@ -11,6 +12,7 @@ const MoviesDetails = () => {
   const navigate = useNavigate();
   const goBack = () => navigate(-1);
 
+  const [loading, setLoading] = useState(false);
   const [movieDetails, setMovieDetails] = useState({});
 
   const { movieId } = useParams();
@@ -18,12 +20,13 @@ const MoviesDetails = () => {
   useEffect(() => {
     const getData = async movieId => {
       try {
+        setLoading(true);
         const movieDetails = await getDetails(movieId);
-
         setMovieDetails(movieDetails);
       } catch (error) {
         console.log(error.message);
       } finally {
+        setLoading(false);
       }
     };
 
@@ -32,6 +35,7 @@ const MoviesDetails = () => {
 
   return (
     <Suspense>
+      {loading && <Loader />}
       <PageTitle>Movie details</PageTitle>
 
       <Button onClick={goBack}>Go back</Button>
