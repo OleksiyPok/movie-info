@@ -37,14 +37,14 @@ const MoviesDetails = () => {
     <Suspense>
       {loading && <Loader />}
       <PageTitle>Movie details</PageTitle>
-
       <Button onClick={goBack}>Go back</Button>
 
-      <MovieCard movieDetails={movieDetails} />
+      {Object.keys(movieDetails).length !== 0 && (
+        <MovieCard movieDetails={movieDetails} />
+      )}
 
       <Button to={routes.MOVIES_CAST}>Cast</Button>
       <Button to={routes.MOVIES_REVIEWS}>Reviews</Button>
-
       <Suspense>
         <Outlet />
       </Suspense>

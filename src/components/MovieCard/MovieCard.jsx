@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 import defaultPhoto from 'images/comingSoon_200x300.jpg';
 
 import {
@@ -56,6 +58,18 @@ const MovieCard = ({ movieDetails }) => {
       </Description>
     </ComponentContainer>
   );
+};
+
+MovieCard.propTypes = {
+  movieDetails: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    original_title: PropTypes.string,
+    release_date: PropTypes.string,
+    poster_path: PropTypes.string,
+    homepage: PropTypes.string,
+    overview: PropTypes.string,
+    genres: PropTypes.array,
+  }).isRequired,
 };
 
 export default MovieCard;
