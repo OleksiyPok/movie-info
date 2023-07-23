@@ -1,11 +1,12 @@
 import React from 'react';
+import { useLocation } from 'react-router-dom';
 
 import defaultPhoto from 'images/comingSoon_200x300.jpg';
 
 import PropTypes from 'prop-types';
 
 import {
-  ComponentContainer,
+  LinkToMovie,
   Photo,
   Description,
   MovieTitle,
@@ -16,6 +17,8 @@ import {
 const MovieSmallCard = ({ movie }) => {
   const { id, title, release_date, poster_path, overview } = movie;
 
+  const location = useLocation();
+
   const poster = poster_path
     ? `https://image.tmdb.org/t/p/w200/${poster_path}`
     : defaultPhoto;
@@ -25,7 +28,7 @@ const MovieSmallCard = ({ movie }) => {
     : '';
 
   return (
-    <ComponentContainer to={`/movies/${id}`}>
+    <LinkToMovie to={`/movies/${id}`} state={{ from: location }}>
       <Photo src={poster} alt={title} />
 
       <Description>
@@ -35,7 +38,7 @@ const MovieSmallCard = ({ movie }) => {
         {overview && <SubTitle>Overview: </SubTitle>}
         <Text>{overview}</Text>
       </Description>
-    </ComponentContainer>
+    </LinkToMovie>
   );
 };
 

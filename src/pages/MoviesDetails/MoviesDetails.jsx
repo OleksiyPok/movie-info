@@ -1,5 +1,5 @@
-import { useState, useEffect, Suspense } from 'react';
-import { Outlet, useNavigate, useParams } from 'react-router-dom';
+import { useState, useEffect, useRef, Suspense } from 'react';
+import { Outlet, useParams, useLocation } from 'react-router-dom';
 
 import routes from 'routes';
 import { getDetails } from 'services/ApiService';
@@ -9,11 +9,12 @@ import Loader from 'components/Loader';
 import { Button, PageTitle } from './MoviesDetails.styled';
 
 const MoviesDetails = () => {
-  const navigate = useNavigate();
-  const goBack = () => navigate(-1);
-
   const [loading, setLoading] = useState(false);
   const [movieDetails, setMovieDetails] = useState({});
+
+  const location = useLocation();
+  // const backLink = location.state?.from ?? '/';
+  const backLink = useRef(location.state?.from ?? '/');
 
   const { movieId } = useParams();
 
@@ -37,7 +38,8 @@ const MoviesDetails = () => {
     <Suspense>
       {loading && <Loader />}
       <PageTitle>Movie details</PageTitle>
-      <Button onClick={goBack}>Go back</Button>
+
+      <Button to={backLink.current}>Go back</Button>
 
       {Object.keys(movieDetails).length !== 0 && (
         <MovieCard movieDetails={movieDetails} />

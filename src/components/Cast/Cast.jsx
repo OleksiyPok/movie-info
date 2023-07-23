@@ -29,6 +29,8 @@ const Cast = () => {
     getData(movieId);
   }, [movieId]);
 
+  // console.log('movieCast:', movieCast);
+
   return (
     <Suspense>
       <ComponentContainer>
@@ -36,8 +38,8 @@ const Cast = () => {
         {movieCast.length !== 0 ? (
           movieCast.map(actorDetails => {
             return (
-              <CastContainer>
-                <Actor key={actorDetails.id} actorDetails={actorDetails} />
+              <CastContainer key={actorDetails.id}>
+                <Actor actorDetails={actorDetails} />
               </CastContainer>
             );
           })

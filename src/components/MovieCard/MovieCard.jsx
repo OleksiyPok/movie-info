@@ -1,5 +1,3 @@
-import PropTypes from 'prop-types';
-
 import defaultPhoto from 'images/comingSoon_200x300.jpg';
 
 import {
@@ -11,6 +9,8 @@ import {
   Homepage,
   SubTitle,
 } from './MovieCard.styled';
+
+import PropTypes from 'prop-types';
 
 const MovieCard = ({ movieDetails }) => {
   const {

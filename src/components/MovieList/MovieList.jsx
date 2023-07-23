@@ -1,12 +1,15 @@
 import React from 'react';
+// import { useLocation } from 'react-router-dom';
 
 import MovieSmallCard from 'components/MovieSmallCard';
 
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 
 import { ComponentContainer } from './MovieList.styled';
 
 const MovieList = ({ movies }) => {
+  // const location = useLocation();
+
   return (
     <ComponentContainer>
       {movies.map(movie => (
@@ -16,6 +19,6 @@ const MovieList = ({ movies }) => {
   );
 };
 
-MovieList.propTypes = { movies: PropTypes.array };
+// MovieList.propTypes = { movies: PropTypes.array };
 
 export default MovieList;

@@ -6,12 +6,13 @@ import PropTypes from 'prop-types';
 
 const Actor = ({ actorDetails }) => {
   const { character, name, profile_path } = actorDetails;
+
   const actorPhoto = profile_path
     ? `https://image.tmdb.org/t/p/w200/${profile_path}`
     : `${defaultPhoto}`;
 
   return (
-    <ComponentContainer key={actorDetails.id}>
+    <ComponentContainer>
       <Photo src={actorPhoto} alt={name} />
 
       <SubTitle>{name}</SubTitle>

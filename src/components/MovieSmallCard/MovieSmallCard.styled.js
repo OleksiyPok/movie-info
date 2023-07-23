@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 import styled from 'styled-components';
 
-export const ComponentContainer = styled(Link)`
+export const LinkToMovie = styled(Link)`
   border: 2px solid darkblue;
   border-radius: 8px;
 
