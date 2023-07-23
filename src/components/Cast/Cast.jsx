@@ -37,11 +37,7 @@ const Cast = () => {
         {loading && <Loader />}
         {movieCast.length !== 0 ? (
           movieCast.map(actorDetails => {
-            return (
-              <CastContainer key={actorDetails.id}>
-                <Actor actorDetails={actorDetails} />
-              </CastContainer>
-            );
+            return <Actor key={actorDetails.id} actorDetails={actorDetails} />;
           })
         ) : (
           <p>We dont have any information about cast for this movie</p>

@@ -28,7 +28,7 @@ const MovieSmallCard = ({ movie }) => {
     : '';
 
   return (
-    <LinkToMovie to={`/movies/${id}`} state={{ from: location }}>
+    <LinkToMovie to={`/movies/${id}`} $state={{ from: location }}>
       <Photo src={poster} alt={title} />
 
       <Description>
