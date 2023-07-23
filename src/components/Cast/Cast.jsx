@@ -5,7 +5,7 @@ import { getCast } from 'services/ApiService';
 import Actor from 'components/Actor';
 import Loader from 'components/Loader';
 
-import { ComponentContainer, CastContainer } from './Cast.styled';
+import { ComponentContainer } from './Cast.styled';
 
 const Cast = () => {
   const { movieId } = useParams();
