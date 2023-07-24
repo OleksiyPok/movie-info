@@ -1,5 +1,5 @@
 import { useState, useEffect, Suspense } from 'react';
-import SearchForm from 'components/SearchForm';
+// import SearchForm from 'components/SearchForm';
 import { getSearch } from 'services/ApiService';
 import { useSearchParams } from 'react-router-dom';
 import MovieList from 'components/MovieList';
@@ -10,9 +10,20 @@ import { PageTitle } from './Movies.styled';
 const Movies = () => {
   const [searchResults, setSearchResults] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [searchParams, setSearchParams] = useSearchParams('');
 
-  const [searchParams] = useSearchParams();
-  const query = searchParams.get('search') ?? '';
+  const handlerOnSubmit = e => {
+    e.preventDefault();
+    const searchQuery = e.target.elements.search.value;
+
+    if (searchQuery === '') {
+      return setSearchParams({});
+    }
+
+    setSearchParams({ search: searchQuery });
+  };
+
+  const searchQuery = searchParams.get('search') ?? '';
 
   useEffect(() => {
     setLoading(true);
@@ -27,14 +38,25 @@ const Movies = () => {
       }
     };
 
-    getData(query);
-  }, [query]);
+    getData(searchQuery);
+  }, [searchQuery]);
 
   return (
     <Suspense>
       {loading && <Loader />}
       <PageTitle>Movie search</PageTitle>
-      <SearchForm />
+      <form onSubmit={handlerOnSubmit}>
+        <input
+          type="text"
+          name="search"
+          defaultValue={searchQuery}
+          autoComplete="off"
+          autoFocus
+          placeholder="Search movies"
+        />
+        <button type="submit">Search</button>
+      </form>
+      {/* <SearchForm getSearchQuery={handlerOnSubmit} /> */}
       <MovieList movies={searchResults} />
     </Suspense>
   );

@@ -1,11 +1,16 @@
+import { useSearchParams } from 'react-router-dom';
 import { Button, Input } from './SearchForm.styled';
 
-const SearchForm = () => {
+const SearchForm = ({ handlerOnSubmit }) => {
+  const [searchParams] = useSearchParams('');
+  const searchQuery = searchParams.get('search') ?? '';
+
   return (
-    <form>
+    <form onSubmit={handlerOnSubmit}>
       <Input
-        name="search"
         type="text"
+        name="search"
+        defaultValue={searchQuery}
         autoComplete="off"
         autoFocus
         placeholder="Search movies"
