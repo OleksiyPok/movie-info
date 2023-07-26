@@ -18,6 +18,7 @@ const MovieSmallCard = ({ movie }) => {
   const { id, title, release_date, poster_path, overview } = movie;
 
   const location = useLocation();
+  // console.log('location:', location);
 
   const poster = poster_path
     ? `https://image.tmdb.org/t/p/w200/${poster_path}`
@@ -28,7 +29,7 @@ const MovieSmallCard = ({ movie }) => {
     : '';
 
   return (
-    <LinkToMovie to={`/movies/${id}`} $state={{ from: location }}>
+    <LinkToMovie to={`/movies/${id}`} state={{ from: location }}>
       <Photo src={poster} alt={title} />
 
       <Description>

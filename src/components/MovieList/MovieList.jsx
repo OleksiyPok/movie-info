@@ -9,6 +9,7 @@ import { ComponentContainer } from './MovieList.styled';
 
 const MovieList = ({ movies }) => {
   // const location = useLocation();
+  // console.log('location:', location);
 
   return (
     <ComponentContainer>
