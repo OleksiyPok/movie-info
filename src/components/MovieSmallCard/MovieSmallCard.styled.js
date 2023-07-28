@@ -1,8 +1,33 @@
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 import styled from 'styled-components';
 
-export const LinkToMovie = styled(Link)`
+export const Li = styled.li`
+  text-decoration: none;
+`;
+
+export const LinkToMovie = styled(NavLink)`
+  border: 2px solid darkblue;
+  border-radius: 8px;
+
+  margin-top: 15px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  text-decoration: none;
+
+  &:visited {
+    color: darkblue;
+  }
+
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+    max-height: 150px;
+  }
+`;
+
+export const CardContent = styled.div`
   border: 2px solid darkblue;
   border-radius: 8px;
 

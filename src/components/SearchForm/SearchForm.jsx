@@ -1,12 +1,12 @@
 import { useSearchParams } from 'react-router-dom';
 import { Button, Input } from './SearchForm.styled';
 
-const SearchForm = ({ handlerOnSubmit }) => {
+const SearchForm = ({ handlerSearchForm }) => {
   const [searchParams] = useSearchParams('');
   const searchQuery = searchParams.get('search') ?? '';
 
   return (
-    <form onSubmit={handlerOnSubmit}>
+    <form onSubmit={handlerSearchForm}>
       <Input
         type="text"
         name="search"

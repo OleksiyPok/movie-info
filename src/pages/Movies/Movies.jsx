@@ -3,11 +3,11 @@ import { useSearchParams } from 'react-router-dom';
 // import { useLocation } from 'react-router-dom';
 
 import { getSearch } from 'services/ApiService';
-// import SearchForm from 'components/SearchForm';
+import SearchForm from 'components/SearchForm';
 import MovieList from 'components/MovieList';
 import Loader from 'components/Loader';
 
-import { Button, Input, PageTitle } from './Movies.styled';
+import { PageTitle } from './Movies.styled';
 
 const Movies = () => {
   const [loading, setLoading] = useState(false);
@@ -51,7 +51,7 @@ const Movies = () => {
     <Suspense>
       {loading && <Loader />}
       <PageTitle>Movie search</PageTitle>
-      <form onSubmit={handleOnSubmit}>
+      {/* <form onSubmit={handleOnSubmit}>
         <Input
           type="text"
           name="search"
@@ -61,8 +61,8 @@ const Movies = () => {
           placeholder="Search movies"
         />
         <Button type="submit">Search</Button>
-      </form>
-      {/* <SearchForm getSearchQuery={handleOnSubmit} /> */}
+      </form> */}
+      <SearchForm getSearchQuery={handleOnSubmit} />
       <MovieList movies={searchResults} />
     </Suspense>
   );

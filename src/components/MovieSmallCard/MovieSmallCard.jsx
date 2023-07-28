@@ -6,6 +6,7 @@ import defaultPhoto from 'images/comingSoon_200x300.jpg';
 import PropTypes from 'prop-types';
 
 import {
+  Li,
   LinkToMovie,
   Photo,
   Description,
@@ -29,17 +30,21 @@ const MovieSmallCard = ({ movie }) => {
     : '';
 
   return (
-    <LinkToMovie to={`/movies/${id}`} state={{ from: location }}>
-      <Photo src={poster} alt={title} />
+    <Li>
+      <LinkToMovie to={`/movies/${id}`} state={{ from: location }}>
+        {/* <CardContent> */}
+        <Photo src={poster} alt={title} />
 
-      <Description>
-        <MovieTitle>
-          {title} {release}
-        </MovieTitle>
-        {overview && <SubTitle>Overview: </SubTitle>}
-        <Text>{overview}</Text>
-      </Description>
-    </LinkToMovie>
+        <Description>
+          <MovieTitle>
+            {title} {release}
+          </MovieTitle>
+          {overview && <SubTitle>Overview: </SubTitle>}
+          <Text>{overview}</Text>
+        </Description>
+        {/* </CardContent> */}
+      </LinkToMovie>
+    </Li>
   );
 };
 
