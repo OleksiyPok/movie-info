@@ -2,9 +2,7 @@ import { NavLink } from 'react-router-dom';
 
 import styled from 'styled-components';
 
-export const Li = styled.li`
-  text-decoration: none;
-`;
+export const Li = styled.li``;
 
 export const LinkToMovie = styled(NavLink)`
   border: 2px solid darkblue;
@@ -15,7 +13,6 @@ export const LinkToMovie = styled(NavLink)`
   display: flex;
   flex-direction: column;
   gap: 20px;
-  text-decoration: none;
 
   &:visited {
     color: darkblue;
@@ -36,7 +33,6 @@ export const CardContent = styled.div`
   display: flex;
   flex-direction: column;
   gap: 20px;
-  text-decoration: none;
 
   &:visited {
     color: darkblue;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 import defaultPhoto from 'images/comingSoon_200x300.jpg';
 
@@ -8,6 +8,7 @@ import PropTypes from 'prop-types';
 import {
   Li,
   LinkToMovie,
+  CardContent,
   Photo,
   Description,
   MovieTitle,
@@ -31,19 +32,19 @@ const MovieSmallCard = ({ movie }) => {
 
   return (
     <Li>
-      <LinkToMovie to={`/movies/${id}`} state={{ from: location }}>
-        {/* <CardContent> */}
-        <Photo src={poster} alt={title} />
+      <Link to={`/movies/${id}`} state={{ from: location }}>
+        <CardContent>
+          <Photo src={poster} alt={title} />
 
-        <Description>
-          <MovieTitle>
-            {title} {release}
-          </MovieTitle>
-          {overview && <SubTitle>Overview: </SubTitle>}
-          <Text>{overview}</Text>
-        </Description>
-        {/* </CardContent> */}
-      </LinkToMovie>
+          <Description>
+            <MovieTitle>
+              {title} {release}
+            </MovieTitle>
+            {overview && <SubTitle>Overview: </SubTitle>}
+            <Text>{overview}</Text>
+          </Description>
+        </CardContent>
+      </Link>
     </Li>
   );
 };

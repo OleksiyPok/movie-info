@@ -17,21 +17,20 @@ const Movies = () => {
   // const location = useLocation();
   // console.log('location:', location);
 
-  const handleOnSubmit = e => {
-    e.preventDefault();
-    const searchQuery = e.target.elements.search.value;
-
-    if (searchQuery === '') {
-      return setSearchParams({});
-    }
-
-    setSearchParams({ search: searchQuery });
-    e.target.reset();
+  const handleOnSubmit = searchQuery => {
+    const params = searchQuery !== '' ? { search: searchQuery } : {};
+    setSearchParams(params);
   };
 
-  const searchQuery = searchParams.get('search') ?? '';
+  const searchQuery = searchParams.get('search');
 
   useEffect(() => {
+    if (!searchQuery) {
+      console.log('add string to search');
+
+      return;
+    }
+
     setLoading(true);
     const getData = async searchQuery => {
       try {
@@ -51,18 +50,11 @@ const Movies = () => {
     <Suspense>
       {loading && <Loader />}
       <PageTitle>Movie search</PageTitle>
-      {/* <form onSubmit={handleOnSubmit}>
-        <Input
-          type="text"
-          name="search"
-          defaultValue={searchQuery}
-          autoComplete="off"
-          autoFocus
-          placeholder="Search movies"
-        />
-        <Button type="submit">Search</Button>
-      </form> */}
-      <SearchForm getSearchQuery={handleOnSubmit} />
+
+      <SearchForm
+        getSearchQuery={handleOnSubmit}
+        prevSeachQuery={searchQuery}
+      />
       <MovieList movies={searchResults} />
     </Suspense>
   );
