@@ -1,11 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
-  body {
- /* background-color: yellow; */
-  }
-
-  a
+   a
   {
     text-decoration: none;}
 `;

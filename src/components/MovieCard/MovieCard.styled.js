@@ -18,8 +18,7 @@ export const ComponentContainer = styled.div`
 `;
 
 export const Photo = styled.img`
-  margin-left: auto;
-  margin-right: auto;
+  display: block;
   width: 300px;
   height: 450px;
   border: 2px solid darkblue;

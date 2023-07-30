@@ -25,25 +25,3 @@ export const Button = styled(Link)`
     width: 150px;
   }
 `;
-
-// export const Button_old = styled.button`
-//   margin: 20px;
-//   margin-left: 0;
-//   margin-right: auto;
-//   height: 40px;
-//   width: 100%;
-
-//   border: 2px solid darkblue;
-//   border-radius: 6px;
-
-//   color: white;
-//   background-color: darkblue;
-//   font-weight: 400;
-
-//   @media screen and (min-width: 768px) {
-//     height: 30px;
-//     margin: 20px;
-//     margin-left: 0px;
-//     width: 150px;
-//   }
-// `;

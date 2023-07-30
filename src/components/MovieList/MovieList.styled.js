@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Ul = styled.ul`
+export const UlStyled = styled.ul`
   margin: 0;
   margin-top: 20px;
   padding-left: 0;

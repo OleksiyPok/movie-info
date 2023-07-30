@@ -11,9 +11,6 @@ const Home = () => {
   const [trendMovies, setTrendMovies] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  // const location = useLocation();
-  // console.log('location:', location);
-
   useEffect(() => {
     const getData = async period => {
       try {

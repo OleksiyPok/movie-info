@@ -14,8 +14,6 @@ const MoviesDetails = () => {
 
   const location = useLocation();
 
-  // console.log('location:', location);
-
   const backLink = useRef(location.state?.from ?? '/');
 
   const { movieId } = useParams();

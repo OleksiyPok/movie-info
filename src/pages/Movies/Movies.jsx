@@ -1,6 +1,5 @@
 import { useState, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'react-router-dom';
-// import { useLocation } from 'react-router-dom';
 
 import { getSearch } from 'services/ApiService';
 import SearchForm from 'components/SearchForm';
@@ -14,9 +13,6 @@ const Movies = () => {
   const [searchParams, setSearchParams] = useSearchParams('');
   const [searchResults, setSearchResults] = useState([]);
 
-  // const location = useLocation();
-  // console.log('location:', location);
-
   const handleOnSubmit = searchQuery => {
     const params = searchQuery !== '' ? { search: searchQuery } : {};
     setSearchParams(params);
@@ -25,12 +21,6 @@ const Movies = () => {
   const searchQuery = searchParams.get('search');
 
   useEffect(() => {
-    if (!searchQuery) {
-      console.log('add string to search');
-
-      return;
-    }
-
     setLoading(true);
     const getData = async searchQuery => {
       try {

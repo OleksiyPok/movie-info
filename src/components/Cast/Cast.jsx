@@ -5,8 +5,8 @@ import { getCast } from 'services/ApiService';
 import Actor from 'components/Actor';
 import Loader from 'components/Loader';
 
-// import { ComponentContainer } from './Cast.styled';
-import { ComponentContainer } from 'components/Reuseble/CommonStyleComponents';
+import { CastContainer } from './Cast.styled';
+// import { ComponentContainer } from 'components/Reuseble/CommonStyleComponents';
 
 const Cast = () => {
   const { movieId } = useParams();
@@ -30,22 +30,18 @@ const Cast = () => {
     getData(movieId);
   }, [movieId]);
 
-  // console.log('movieCast:', movieCast);
-
   return (
     <Suspense>
-      {/* <ComponentContainer> */}
       {loading && <Loader />}
       {movieCast.length !== 0 ? (
-        <ComponentContainer color="green">
+        <CastContainer color="green">
           {movieCast.map(actorDetails => {
             return <Actor key={actorDetails.id} actorDetails={actorDetails} />;
           })}
-        </ComponentContainer>
+        </CastContainer>
       ) : (
         <p>We dont have any information about cast for this movie</p>
       )}
-      {/* </ComponentContainer> */}
     </Suspense>
   );
 };
