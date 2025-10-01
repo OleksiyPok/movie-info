@@ -1,37 +1,38 @@
 name: Build and deploy to GitHub Pages
 
-# Trigger this workflow on every push to the main branch
+# Trigger workflow on every push to main
 on:
   push:
     branches: [main]
 
 jobs:
   build-and-deploy:
-    runs-on: ubuntu-latest  # Use the latest Ubuntu runner
+    runs-on: ubuntu-latest
 
     steps:
       # Step 1: Checkout the repository
       - name: Checkout 🛎️
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0  # Fetch full history for gh-pages deployment
+          fetch-depth: 0  # Fetch full history for deployment
 
-      # Step 2: Install npm dependencies
+      # Step 2: Install dependencies
       - name: Install dependencies 🔧
         run: npm install
 
-      # Step 3: Lint JS/React code (optional, based on your scripts)
+      # Step 3: Lint JS/React code
       - name: Lint 🔍
         run: npm run lint:js
 
-      # Step 4: Build the React project
+      # Step 4: Build React app
       - name: Build project 🏗️
         run: npm run build
 
-      # Step 5: Deploy the build folder to GitHub Pages
+      # Step 5: Deploy build folder to GitHub Pages
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          branch: gh-pages        # The branch where the built files will be deployed
-          folder: build           # Folder containing the production build
-          clean: true             # Clean old deployment folder to prevent worktree errors
+          branch: gh-pages           # Branch to deploy to
+          folder: build              # Folder containing production build
+          clean: true                # Clean old deployment folder
+          token: ${{ secrets.GITHUB_TOKEN }}  # Use default Actions token for public repo
